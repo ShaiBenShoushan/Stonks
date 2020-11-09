@@ -1,0 +1,107 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    background-color: #000a17;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+.search-bar{
+    width: 100%;
+}
+
+input{
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    padding-left: 0.5rem;
+}
+
+input[type=text]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+input:focus{
+    border: none;
+    outline: none;
+}
+
+button{
+    background-color: limegreen;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+button:disabled{
+    cursor: not-allowed;
+    background-color: red;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: white;
+    
+}
+
+
+
+button:hover {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    background-color: purple;
+    /* border: none; */
+    
+}
+
+
+button:focus {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    
+}
+  
+abutton:active {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    background-color: lightskyblue;
+
+}
+
+img {
+    height: 45px;
+    width: 80px;
+    -o-object-fit: scale-down;
+}
+
+
+.my-spinner{
+    height: 7rem;
+    width: 7rem;
+    margin-top: 10rem;
+}

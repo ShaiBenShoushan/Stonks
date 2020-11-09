@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    height: 100%;
+}
+
+body{
+    height: 100%;
+    /* overflow: hidden; */
+    background-color: #000a17;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+canvas{
+    height: 100%;
+    color: white;
+}
+
+.company-red{
+    color: red;
+}
+
+.company-green{
+    color: lightgreen;
+}
+
+.d-none {
+    display: none;
+}
+
+img, h2{
+    display: inline;
+}
+
+.my-spinner{
+    height: 7rem;
+    width: 7rem;
+    margin-top: 10rem;
+}
+
+.stock-info{
+    margin: 0;
+    padding: 0;
+    padding: 5rem;
+}
+
+img[src=""]{
+    display: none;
+}
+img {
+    height: 90px;
+    width: 160px;
+    -o-object-fit: scale-down;
+}
