@@ -3,12 +3,25 @@ let inputValue = undefined;
 const searchButton = document.getElementById('button');
 const searchInput = document.getElementById('search');
 const loader = document.getElementById('loader');
+const marq = document.getElementById('marq');
 
-searchInput.addEventListener('input', inputListener)
+const companiesForMarquee = "GOOG, AAPL, DBX, WYNN, BYND, TSLA, FL, MSFT, AMZN, FB, BRK-B, FIZZ, NVDA, IRBT, BA, DIS, GE, HD, NKE, SBUX, JNJ, PEP, MMM, V, WM, JPM, LMT, LEG, GM, LUV, GS, DAL, BK-PC, AXP, KO, WFC, BAC, UBER, SWKS, QCOM, SCHW"
+
+const marqSpan = new Marquee(marq);
+
+marqSpan.getData(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/${companiesForMarquee}`);
+
+
+const searcher = new SearchForm(loader, getInput);
+
+function getInput(){
+    return inputValue;
+}
+
+searchInput.addEventListener('input', inputListener);
 searchButton.addEventListener('click', buttonListener);
 
-let listArray = [];
-let listArrayCheck = true;
+
 
 function inputListener(event){
     inputValue = event.target.value;
@@ -20,37 +33,8 @@ function inputListener(event){
 }
 
 function buttonListener(event){
-    tenCompanies(inputValue);
-}
-
-async function tenCompanies(value){
-    let url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${value}&limit=10&exchange=NASDAQ`;
-    loader.classList.remove('d-none');
-    let response = await fetch(url);
-    if(response.status == 200){
-        let json = await response.json();
-        showResults(json);
-        loader.classList.add('d-none');
-    } else {
-        let error = await response.text();
-        loader.classList.add('d-none');
-    }
-}
-
-function showResults(array){
-    let resultList = document.getElementById('result-list');
-    for(let i = 0; i < array.length; i++){
-        let currentLI = document.createElement('LI');
-        let imgSrc = `"https://financialmodelingprep.com/images-New-jpg/${array[i].symbol}.jpg"`;
-        if(listArray[i]){
-            listArray[i].innerHTML = `<img src=${imgSrc}><a href="/company.html?symbol=${array[i].symbol}">${array[i].symbol} ${array[i].name}</a>`;
-        } else{
-            currentLI.id = `li${i+1}`
-            resultList.appendChild(currentLI);
-            currentLI.innerHTML = `<img src=${imgSrc}><a href="/company.html?symbol=${array[i].symbol}">${array[i].symbol} ${array[i].name}</a>`;
-            listArray[i] = currentLI;
-        }
-    }
+    searcher.tenCompanies(inputValue);
 }
 
 
+//I feel like something is wrong with my classes and inhertiance, did I do it right? it fells like im missing the point and if you could share some insights that woyld be cool <3. and also with catch and errors idk why but it doesnt work for me with catch.(i mean on the async function).

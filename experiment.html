@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title of the document</title>
+    <style>
+      .marquee {
+        margin: 0 auto;
+        width: 600px;
+        height: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .marquee:before,
+      .marquee:after {
+        position: absolute;
+        top: 0;
+        width: 50px;
+        height: 30px;
+        content: "";
+        z-index: 1;
+      }
+      .marquee:before {
+        left: 0;
+        background: linear-gradient(to right, #ccc 10%, transparent 80%);
+      }
+      .marquee:after {
+        right: 0;
+        background: linear-gradient(to left, #ccc 10%, transparent 80%);
+      }
+      .marquee__content {
+        width: 300%;
+        display: flex;
+        line-height: 30px;
+        animation: marquee 10s linear infinite forwards;
+      }
+      .marquee__content:hover {
+        animation-play-state: paused;
+      }
+      .list-inline {
+        display: flex;
+        justify-content: space-around;
+        width: 33.33%;
+        /* reset list */
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-66.6%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="marquee">
+      <div class="marquee__content">
+        <ul class="list-inline">
+          <li>Text 1</li>
+          <li>Text 2</li>
+          <li>Text 3</li>
+          <li>Text 4</li>
+          <li>Text 5</li>
+        </ul>
+        <ul class="list-inline">
+          <li>Text 1</li>
+          <li>Text 2</li>
+          <li>Text 3</li>
+          <li>Text 4</li>
+          <li>Text 5</li>
+        </ul>
+        <ul class="list-inline">
+          <li>Text 1</li>
+          <li>Text 2</li>
+          <li>Text 3</li>
+          <li>Text 4</li>
+          <li>Text 5</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
