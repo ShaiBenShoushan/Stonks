@@ -4,7 +4,6 @@ class Marquee{
         this.marqueeElement = element;
         this.textList = [];
     }
-
     getData(url){
         fetch(url).then(response =>{
             return response.json();

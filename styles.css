@@ -4,14 +4,12 @@
 html{
     height: 100%;
 }
-
 body{
     height: 100%;
     background-color: #000a17;
     color: white;
     font-family: 'Oswald', sans-serif;
 }
-
 span{
     white-space: pre;
     overflow: wrap;
@@ -19,35 +17,28 @@ span{
     word-wrap: break-word;
     
 }
-
 a {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 100%;
 }
-
 .search-bar{
     width: 100%;
 }
-
 input{
     width: 80%;
     margin: 0;
     padding: 0;
     padding-left: 0.5rem;
 }
-
 input[type=text]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
-
 input:focus{
     border: none;
     outline: none;
 }
-
 button{
     background-color: limegreen;
     width: 20%;
@@ -55,7 +46,6 @@ button{
     padding: 0;
     border: none;
 }
-
 button:disabled{
     cursor: not-allowed;
     background-color: red;
@@ -66,18 +56,13 @@ button:disabled{
     color: white;
     
 }
-
-
-
 button:hover {
     width: 20%;
     margin: 0;
     padding: 0;
     background-color: purple;
-    /* border: none; */
-    
+  
 }
-
 
 button:focus {
     width: 20%;
@@ -101,6 +86,9 @@ li{
     list-style-type: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 ul{
@@ -132,28 +120,6 @@ img {
 .company-green{
     color: lightgreen;
 }
-
-/* @keyframes scrolling {
-    0% { left: 100%; }
-    50% { left: -100%; }
-    100% {left: -100%; }
-}
-
-.marque{
-    height: 35px;
-    width: 100%;
-  
-    overflow: hidden;
-    position: relative;
-    background-color: #e9e5fb;  
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    padding: 8px 0 4px 0;
-    animation: scrolling 30s linear infinite
-} */
-
-
-
 @keyframes marquee {
     0% {
       transform: translateX(0);
@@ -184,13 +150,10 @@ img {
   }
   .marquee:before {
     left: 0;
-    /* background: linear-gradient(to right, #ccc 10%, transparent 80%); */
   }
   .marquee:after {
     right: 0;
-    /* background: linear-gradient(to left, #ccc 10%, transparent 80%); */
   }
-
   .marquee__content {
     width: 300%;
     display: flex;
@@ -204,8 +167,17 @@ img {
     display: flex;
     justify-content: space-around;
     width: 33.33%;
-    /* reset list */
     list-style: none;
     padding: 0;
     margin: 0;
   }
+.highlighted-span{
+    background-color: yellow;
+}
+.compare-div{
+    width: 80%;
+}
+
+.compare-button{
+    width: 20%;
+}

@@ -57,11 +57,17 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="./company.js"></script>
+    <script src="./CompanyClass.js"></script>
+    <script>
+        (async function (){
+            const params = new URLSearchParams(location.search);
+            const symbol = params.get('symbol');
+            const compInfo = new Company(symbol);
+            compInfo.mainFunc();
+
+        }) ();
+    </script>
 </body>
 </html>

@@ -1,6 +1,5 @@
 
 class SearchForm extends SearchResults{
-    
     constructor(loaderElement, onInputChange, url, array){
         super(onInputChange);
         this.myArray = array;
@@ -8,7 +7,6 @@ class SearchForm extends SearchResults{
         this.input = onInputChange;
         this.myUrl = url;
     }
-    
     async tenCompanies(){
         const theList = document.getElementById('result-list');
         this.url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/search?query=${this.input()}&limit=10&exchange=NASDAQ`;
@@ -17,6 +15,7 @@ class SearchForm extends SearchResults{
         let response = await fetch(this.url);
         if(response.status == 200){
             this.myArray = await response.json();
+            console.log(this.myArray);
             super.showResults(this.myArray, this.input());
             this.loader.classList.add('d-none');
             theList.classList.remove('d-none');
