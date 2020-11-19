@@ -3,9 +3,12 @@ class Marquee{
     constructor(element){
         this.marqueeElement = element;
         this.textList = [];
+        const theUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/`;
+        const companiesMarquee = "GOOG, AAPL, DBX, WYNN, BYND, TSLA, FL, MSFT, AMZN, FB, BRK-B, FIZZ, NVDA, IRBT, BA, DIS, GE, HD, NKE, SBUX, JNJ, PEP, MMM, V, WM, JPM, LMT, LEG, GM, LUV, GS, DAL, BK-PC, AXP, KO, WFC, BAC, UBER, SWKS, QCOM, SCHW";
+        this.getData(theUrl, companiesMarquee)
     }
-    getData(url){
-        fetch(url).then(response =>{
+    getData(url,companiesForMarquee){
+        fetch(url+companiesForMarquee).then(response =>{
             return response.json();
         }).then(data =>{
             for(let i = 0; i < data.length; i++){

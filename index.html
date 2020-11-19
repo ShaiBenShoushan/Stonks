@@ -33,7 +33,6 @@
                         <div class="col-12 m-0 p-0 d-flex flex-column align-items-center">
                             <h1>Shushu The Conquerer LLC</h1>
                             <h4>Welcome peasants! I will teach you how to invest.</h4>
-                            
                         </div>
                     </div>
                     <div class="row m-0 p-0 d-flex flex-row">
@@ -75,8 +74,26 @@
         </div>
     </div>
     <script src="./marquee.js"></script>
+    <script src="./comparisonClass.js"></script>
     <script src="./SearchResults.js"></script>
     <script src="./SearchForm.js"></script>
-    <script src="./index.js"></script>
+    <script>
+        (async function(){
+            const marqSpan = new Marquee(document.getElementById('marq'));
+            const searcher = new SearchForm();
+            const result = new SearchResults();
+            const compare = new Comparison();
+            searcher.onSearch((array,input )=> {
+                result.showResults(array,input);
+            });
+            result.onButtonCreated((id,symbol)=> {
+                compare.compareHandler(id,symbol);
+            });
+            result.onCompare(()=> {
+                compare.compare();
+            });
+        })();
+
+    </script>
 </body>
 </html>

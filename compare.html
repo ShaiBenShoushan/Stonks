@@ -11,8 +11,21 @@
 <body>
     <div class="container-fluid m-0 p-0 h-100">
         <div class="row m-0 p-0">
+            <div class="col-12 m-0 p-0">
+                <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
+                    <div class="row m-0 p-0">
+                        <h1>Shushu The Conquerer LLC</h1>
+                    </div>
+                    <div class="row m-0 p-0">
+                        <h4>Welcome peasants! I will teach you how to invest.</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row m-0 p-0">
             <div id="comp1" class="col-6 m-0 p-0">
-                <div class="row m-0 p-0">
+                <!-- <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
                             <div class="row m-0 p-0">
@@ -24,15 +37,15 @@
                         </div>
         
                     </div>
-                </div>
-                <div class="row m-0 p-0">
+                </div> -->
+                <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0 d-flex justify-content-center">
                         <div id="loader" class="spinner-border d-none my-spinner" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-8 stock-info">
                         <div>
                             <a id="compLink" href="">
@@ -45,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 h-100">
                             <div class="row m-0 p-0">
@@ -60,7 +73,7 @@
                 </div>
             </div>
             <div id="comp2" class="col-6 m-0 p-0">
-                <div class="row m-0 p-0">
+                <!-- <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
                             <div class="row m-0 p-0">
@@ -72,15 +85,15 @@
                         </div>
         
                     </div>
-                </div>
-                <div class="row m-0 p-0">
+                </div> -->
+                <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0 d-flex justify-content-center">
                         <div id="loader1" class="spinner-border d-none my-spinner" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-8 stock-info">
                         <div>
                             <a id="compLink1" href="">
@@ -93,7 +106,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 h-100">
                             <div class="row m-0 p-0">
@@ -108,7 +121,7 @@
                 </div>
             </div>
             <div id="comp3" class='d-none'>
-                <div class="row m-0 p-0">
+                <!-- <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
                             <div class="row m-0 p-0">
@@ -120,15 +133,15 @@
                         </div>
         
                     </div>
-                </div>
-                <div class="row m-0 p-0">
+                </div> -->
+                <div class="row m-0 p-0 h-5">
                     <div class="col-12 m-0 p-0 d-flex justify-content-center">
                         <div id="loader2" class="spinner-border d-none my-spinner" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-8 stock-info">
                         <div>
                             <a id="compLink2" href="">
@@ -141,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0">
+                <div class="row m-0 p-0 h-45">
                     <div class="col-12 m-0 p-0">
                         <div class="container-fluid m-0 p-0 h-100">
                             <div class="row m-0 p-0">
@@ -169,16 +182,16 @@
         const companyThree = document.getElementById(`comp3`);
         let arrayCompare = [];
         console.log(symbol);
-        let z = symbol.split(",");
-        console.log(z);
-        for(let i = 0; i < z.length; i++){
+        let compareArray = symbol.split(",");
+        console.log(compareArray);
+        for(let i = 0; i < compareArray.length; i++){
             if(i === 0){
                 console.log('hi');
-                arrayCompare[i] = new Company(z[i]);
-                arrayCompare[i].mainFunc();
+                arrayCompare[i] = new Company(compareArray[i]);
+                // arrayCompare[i].mainFunc();
             } else {
-                arrayCompare[i] = new Company(z[i], i);
-                arrayCompare[i].mainFunc();
+                arrayCompare[i] = new Company(compareArray[i], i);
+                // arrayCompare[i].mainFunc();
             }
         }
         if(arrayCompare.length === 3){
