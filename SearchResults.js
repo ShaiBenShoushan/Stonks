@@ -56,7 +56,7 @@ class SearchResults{
         let currentImg = document.createElement('IMG');
         li.appendChild(currentA);
         let imgSrc = `https://financialmodelingprep.com/images-New-jpg/${symbol}.jpg`;
-        let myHref = `/company.html?symbol=${symbol}`;
+        let myHref = `https://shaibenshoushan.github.io/Stonks/company.html?symbol=${symbol}`;
         currentA.href = myHref;
         currentA.className = "myA";
         currentImg.src = imgSrc;
