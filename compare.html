@@ -9,7 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container-fluid m-0 p-0 h-100">
+    
+    <div class="container-fluid m-0 p-0 d-flex flex-column h-100">
         <div class="row m-0 p-0">
             <div class="col-12 m-0 p-0">
                 <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
@@ -20,192 +21,139 @@
                         <h4>Welcome peasants! I will teach you how to invest.</h4>
                     </div>
                 </div>
-
-            </div>
-        </div>
-        <div class="row m-0 p-0">
-            <div id="comp1" class="col-6 m-0 p-0">
-                <!-- <div class="row m-0 p-0 h-5">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
-                            <div class="row m-0 p-0">
-                                <h1>Shushu The Conquerer LLC</h1>
-                            </div>
-                            <div class="row m-0 p-0">
-                                <h4>Welcome peasants! I will teach you how to invest.</h4>
-                            </div>
-                        </div>
-        
-                    </div>
-                </div> -->
-                <div class="row m-0 p-0 h-5">
+                <div class="row">
                     <div class="col-12 m-0 p-0 d-flex justify-content-center">
                         <div id="loader" class="spinner-border d-none my-spinner" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
                     </div>
                 </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-8 stock-info">
-                        <div>
-                            <a id="compLink" href="">
-                                <img id="compImage" src="">
-                                <h2 id="header"></h2>
-                            </a>
-                            <h1 id="header-price"></h1>
-                            <p id="description">
-                            </p>
+            </div>
+        </div>
+        <div class="row m-0 p-0 h-100">
+            <div id="comp1" class="col-6 m-0 p-0 h-100">
+                <div class="container-fluid m-0 p-0 h-100 d-flex flex-column justify-content-between">
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div>
+                                <a id="compLink" href="">
+                                    <img id="compImage" src="">
+                                    <h2 id="header"></h2>
+                                </a>
+                                <h1 id="header-price"></h1>
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 h-100">
-                            <div class="row m-0 p-0">
-                                <div class="col-2 m-0 p-0"></div>
-                                <div class="col-8 m-0 p-0" >
-                                    <canvas id="myChart"></canvas>
+                    <div class="row m-0 p-0">
+                        <p id="description"></p>
+                    </div>
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div class="container-fluid m-0 p-0">
+                                <div class="row m-0 p-0">
+                                    <div class="col-12 m-0 p-0" >
+                                        <canvas id="myChart"></canvas>
+                                    </div>
                                 </div>
-                                <div class="col-2 m-0 p-0"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="comp2" class="col-6 m-0 p-0">
-                <!-- <div class="row m-0 p-0 h-5">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
-                            <div class="row m-0 p-0">
-                                <h1>Shushu The Conquerer LLC</h1>
+                <div class="container-fluid m-0 p-0 h-100 d-flex flex-column justify-content-between">
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div>
+                                <a id="compLink1" href="">
+                                    <img id="compImage1" src="">
+                                    <h2 id="header1"></h2>
+                                </a>
+                                <h1 id="header-price1"></h1>
+
                             </div>
-                            <div class="row m-0 p-0">
-                                <h4>Welcome peasants! I will teach you how to invest.</h4>
-                            </div>
-                        </div>
-        
-                    </div>
-                </div> -->
-                <div class="row m-0 p-0 h-5">
-                    <div class="col-12 m-0 p-0 d-flex justify-content-center">
-                        <div id="loader1" class="spinner-border d-none my-spinner" role="status">
-                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-8 stock-info">
-                        <div>
-                            <a id="compLink1" href="">
-                                <img id="compImage1" src="">
-                                <h2 id="header1"></h2>
-                            </a>
-                            <h1 id="header-price1"></h1>
-                            <p id="description1">
-                            </p>
-                        </div>
+                    <div class="row m-0 p-0">
+                        <p id="description1"></p>
                     </div>
-                </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 h-100">
-                            <div class="row m-0 p-0">
-                                <div class="col-2 m-0 p-0"></div>
-                                <div class="col-8 m-0 p-0" >
-                                    <canvas id="myChart1"></canvas>
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div class="container-fluid m-0 p-0">
+                                <div class="row m-0 p-0">
+                                    <div class="col-12 m-0 p-0" >
+                                        <canvas id="myChart1"></canvas>
+                                    </div>
                                 </div>
-                                <div class="col-2 m-0 p-0"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div id="comp3" class='d-none'>
-                <!-- <div class="row m-0 p-0 h-5">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
-                            <div class="row m-0 p-0">
-                                <h1>Shushu The Conquerer LLC</h1>
+                <div class="container-fluid m-0 p-0 h-100 d-flex flex-column justify-content-between">
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div>
+                                <a id="compLink2" href="">
+                                    <img id="compImage2" src="">
+                                    <h2 id="header2"></h2>
+                                </a>
+                                <h1 id="header-price2"></h1>
+
                             </div>
-                            <div class="row m-0 p-0">
-                                <h4>Welcome peasants! I will teach you how to invest.</h4>
-                            </div>
-                        </div>
-        
-                    </div>
-                </div> -->
-                <div class="row m-0 p-0 h-5">
-                    <div class="col-12 m-0 p-0 d-flex justify-content-center">
-                        <div id="loader2" class="spinner-border d-none my-spinner" role="status">
-                            <span class="sr-only">Loading...</span>
                         </div>
                     </div>
-                </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-8 stock-info">
-                        <div>
-                            <a id="compLink2" href="">
-                                <img id="compImage2" src="">
-                                <h2 id="header2"></h2>
-                            </a>
-                            <h1 id="header-price2"></h1>
-                            <p id="description2">
-                            </p>
-                        </div>
+                    <div class="row m-0 p-0">
+                        <p id="description2"></p>
                     </div>
-                </div>
-                <div class="row m-0 p-0 h-45">
-                    <div class="col-12 m-0 p-0">
-                        <div class="container-fluid m-0 p-0 h-100">
-                            <div class="row m-0 p-0">
-                                <div class="col-2 m-0 p-0"></div>
-                                <div class="col-8 m-0 p-0" >
-                                    <canvas id="myChart2"></canvas>
+                    <div class="row m-0 p-0">
+                        <div class="col-12 m-0 p-0">
+                            <div class="container-fluid m-0 p-0">
+                                <div class="row m-0 p-0">
+                                    <div class="col-12 m-0 p-0" >
+                                        <canvas id="myChart2"></canvas>
+                                    </div>
                                 </div>
-                                <div class="col-2 m-0 p-0"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="./api.js"></script>
     <script src="./CompanyClass.js"></script>
     <script>
-        const params = new URLSearchParams(location.search);
-        const symbol = params.get('symbols');
-        const companyOne = document.getElementById(`comp1`);
-        const companyTwo = document.getElementById(`comp2`);
-        const companyThree = document.getElementById(`comp3`);
-        let arrayCompare = [];
-        console.log(symbol);
-        let compareArray = symbol.split(",");
-        console.log(compareArray);
-        for(let i = 0; i < compareArray.length; i++){
-            if(i === 0){
-                console.log('hi');
-                arrayCompare[i] = new Company(compareArray[i]);
-                // arrayCompare[i].mainFunc();
-            } else {
-                arrayCompare[i] = new Company(compareArray[i], i);
-                // arrayCompare[i].mainFunc();
+        (function (){
+            const params = new URLSearchParams(location.search);
+            const symbol = params.get('symbols');
+            const companyOne = document.getElementById(`comp1`);
+            const companyTwo = document.getElementById(`comp2`);
+            const companyThree = document.getElementById(`comp3`);
+            let arrayCompare = [];
+            let compareArray = symbol.split(",");
+            for(let i = 0; i < compareArray.length; i++){
+                if(i === 0){
+                    arrayCompare[i] = new Company(compareArray[i]);
+                } else {
+                    arrayCompare[i] = new Company(compareArray[i], i);
+                }
             }
-        }
-        if(arrayCompare.length === 3){
-            console.log('nibba')
-            companyOne.classList.remove(`col-6`);
-            companyOne.classList.add(`col-4`);
-            companyTwo.classList.remove(`col-6`);
-            companyTwo.classList.add(`col-4`);
-            companyThree.classList.remove(`d-none`);
-            companyThree.classList.add(`col-4`);
-            companyThree.classList.add(`m-0`);
-            companyThree.classList.add(`p-0`);
-        }
-        console.log(arrayCompare);
+            if(arrayCompare.length === 3){
+                companyOne.classList.remove(`col-6`);
+                companyOne.classList.add(`col-4`);
+                companyTwo.classList.remove(`col-6`);
+                companyTwo.classList.add(`col-4`);
+                companyThree.classList.remove(`d-none`);
+                companyThree.classList.add(`col-4`);
+                companyThree.classList.add(`m-0`);
+                companyThree.classList.add(`p-0`);
+            }
+        })();
     </script>
 </body>
 </html>

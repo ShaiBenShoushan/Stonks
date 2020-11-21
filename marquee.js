@@ -1,16 +1,12 @@
-
 class Marquee{
     constructor(element){
         this.marqueeElement = element;
-        this.textList = [];
         const theUrl = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/`;
         const companiesMarquee = "GOOG, AAPL, DBX, WYNN, BYND, TSLA, FL, MSFT, AMZN, FB, BRK-B, FIZZ, NVDA, IRBT, BA, DIS, GE, HD, NKE, SBUX, JNJ, PEP, MMM, V, WM, JPM, LMT, LEG, GM, LUV, GS, DAL, BK-PC, AXP, KO, WFC, BAC, UBER, SWKS, QCOM, SCHW";
-        this.getData(theUrl, companiesMarquee)
+        this.mainFunc(theUrl, companiesMarquee);
     }
-    getData(url,companiesForMarquee){
-        fetch(url+companiesForMarquee).then(response =>{
-            return response.json();
-        }).then(data =>{
+    mainFunc(url, ext){
+        marqueeData(url, ext).then(data =>{
             for(let i = 0; i < data.length; i++){
                 let newSpan = document.createElement('span');
                 let newSpanInside = document.createElement('span');
@@ -25,6 +21,6 @@ class Marquee{
                     newSpanInside.classList.add('company-red');
                 }
             }
-        });
+        })
     }
 }

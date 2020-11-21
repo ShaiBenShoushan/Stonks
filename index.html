@@ -35,16 +35,15 @@
                             <h4>Welcome peasants! I will teach you how to invest.</h4>
                         </div>
                     </div>
-                    <div class="row m-0 p-0 d-flex flex-row">
+                    <div class="row m-0 pb-3 d-flex flex-row">
                         <div id="compareDiv" class="compare-div">
                             
                         </div>
-                        <button id="compareButton" class=compare-button>Compare the companies</button>
+                        <button id="compareButton" class=compare-button disabled>Compare the companies</button>
                     </div>
                     <div class="row m-0 p-0">
                         <div class="col-12 m-0 p-0">
                             <div class="search-bar d-flex flex-row align-items-stretch">
-                                
                                 <input id="search" name="search" type="text" placeholder="Search" minlength="0">
                                 <button id="button" type="submit" disabled>Search</button>
                             </div>
@@ -59,7 +58,7 @@
                     </div>
                     <div class="row m-0 p-0">
                         <div class="col-12 m-0 p-0">
-                                <div class="search-results">
+                                <div id="search-results" class="search-results">
                                     <ul id="result-list" class="m-0 p-0">
                                     </ul>
                                 </div>
@@ -73,6 +72,7 @@
             </div>
         </div>
     </div>
+    <script src="./api.js"></script>
     <script src="./marquee.js"></script>
     <script src="./comparisonClass.js"></script>
     <script src="./SearchResults.js"></script>

@@ -12,7 +12,7 @@
 <body>
     <div class="container-fluid m-0 p-0 h-100">
 
-        <div class="row m-0 p-0 h-10">
+        <div class="row m-0 p-0">
             <div class="col-12 m-0 p-0">
                 <div class="container-fluid m-0 p-0 d-flex flex-column align-items-center">
                     <div class="row m-0 p-0">
@@ -25,35 +25,31 @@
 
             </div>
         </div>
-        <div class="row m-0 p-0 h-5">
+        <div class="row m-0 p-0">
             <div class="col-12 m-0 p-0 d-flex justify-content-center">
                 <div id="loader" class="spinner-border d-none my-spinner" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
             </div>
         </div>
-        <div class="row m-0 p-0 h-45">
-            <div class="col-8 stock-info">
-                <div>
-                    <a id="compLink" href="">
-                        <img id="compImage" src="">
-                        <h2 id="header"></h2>
-                    </a>
-                    <h1 id="header-price"></h1>
-                    <p id="description">
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="row m-0 p-0 h-40">
+        <div class="row m-0 p-0">
             <div class="col-12 m-0 p-0">
                 <div class="container-fluid m-0 p-0 h-100">
                     <div class="row m-0 p-0">
                         <div class="col-2 m-0 p-0"></div>
                         <div class="col-8 m-0 p-0" >
+                            <div>
+                                <a id="compLink" href="">
+                                    <img id="compImage" src="">
+                                    <h2 id="header"></h2>
+                                </a>
+                                <h1 id="header-price"></h1>
+                                <p id="description">
+                                </p>
+                            </div>
                             <canvas id="myChart"></canvas>
-                            <div id="example-table"></div>
-                            <div id="example-table1"></div>
+                            <div id="example-table" class="table"></div>
+                            <div id="example-table1" class="table"></div>
                         </div>
                         <div class="col-2 m-0 p-0"></div>
                     </div>
@@ -63,12 +59,13 @@
     </div>
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.8.4/dist/js/tabulator.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="./api.js"></script>
     <script src="./CompanyClass.js"></script>
     <script>
         (async function (){
             const params = new URLSearchParams(location.search);
             const symbol = params.get('symbol');
-            const compInfo = new Company(symbol);
+            const compInfo = new Company(symbol, "", true);
             compInfo.mainFunc();
         }) ();
     </script>

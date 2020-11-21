@@ -2,24 +2,20 @@
     box-sizing: border-box;
 }
 html{
-    height: 100vh;
+    height: 100%;
 }
 body{
-    height: 100vh;
+    height: 100%;
     background-color: #000a17;
     color: white;
     font-family: 'Oswald', sans-serif;
 }
 canvas{
-    height: 100%;
-    color: white;
+    color:black;
+    margin: 0;
+    padding: 0;
 }
-.company-red{
-    color: red;
-}
-.company-green{
-    color: lightgreen;
-}
+
 .d-none {
     display: none;
 }
@@ -31,11 +27,6 @@ img, h2{
     width: 7rem;
     margin-top: 10rem;
 }
-.stock-info{
-    margin: 0;
-    padding: 0;
-    padding: 5rem;
-}
 img[src=""]{
     display: none;
 }
@@ -44,4 +35,21 @@ img {
     width: 160px;
     -o-object-fit: scale-down;
 }
+p{
+    border: 1px solid  #42EADDFF;
+    border-radius: 10px;
+    width: 60%;
+}
+a{
+    color: #42EADDFF;
+}
 
+.table{
+    margin-top: 1rem;
+}
+.company-red{
+    color: red;
+}
+.company-green{
+    color: lightgreen;
+}

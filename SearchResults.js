@@ -1,56 +1,66 @@
-
 class SearchResults{
-    static compareCounter = 0;
     constructor(){
-        // super();
-        this.clicked = false;
-        // this.inputChange = onInputChange;
-        this.searched = 0;
-        this.symbols = "";
         this.resultList = document.getElementById('result-list');
-        this.url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/`;
-
-        //you can do const x = blahblah here instead of this.
-        
     }
     showResults(array,inputValue){
-        if(this.clicked){
+        this.setParams(inputValue);
+        if(!inputValue){
             this.deleteResults();
+        } else {
+            this.deleteResults();
+            this.displayResults(array,inputValue);
         }
-        const ul = document.getElementById('result-list');
-        ul.classList.remove('d-none');
+    }
+    displayResults(array, inputValue){
+        let symbols = [];
+        let spanPercent = [];
+        this.resultList.classList.remove('d-none');
         for(let i = 0; i < array.length; i++){
+            symbols[i] = array[i].symbol;
             let currentLI = document.createElement('LI');
             let mySpan = document.createElement('SPAN');
-            ul.appendChild(currentLI);
+            spanPercent[i] = mySpan;
+            this.resultList.appendChild(currentLI);
             this.linkCreator(currentLI, array[i].symbol,mySpan);
             this.buttonCreator(currentLI, i, array[i].symbol);
             this.colorSpan(array[i].symbol, inputValue, mySpan);
             this.colorSpan(array[i].name, inputValue, mySpan);
-            getPercentage(array[i].symbol).then((data) => {
-                this.createPercent(data, mySpan);
-            })
-
             this.compare();
+            if(i === array.length - 1){
+                this.getPercentageOnce(symbols, spanPercent);
+            }
         }
-        this.clicked = !this.clicked;
     }
-
+    getPercentageOnce(str ,spans){
+        str = str.join(",");
+        const url = `https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/${str}`;
+        compInfo(url).then((data)=>{
+            for(let i = 0; i < spans.length; i++){
+                let newSpan = document.createElement('span'); 
+                if(Math.sign(data[i].changesPercentage) === 1){
+                    newSpan.textContent = `   (+${data[i].changesPercentage}%)`;
+                    newSpan.classList.add('comapny-green');
+                    newSpan.style.color = 'lightgreen';
+                } else if(Math.sign(data[i].changesPercentage) === -1){
+                    newSpan.textContent =`   (${data[i].changesPercentage}%)`;
+                    newSpan.classList.add('comapny-red');
+                    newSpan.style.color = 'red';
+                }
+                spans[i].appendChild(newSpan);
+            }
+        });
+    }
     onButtonCreated(callback){
         this.buttonCreate = callback;
     }
-
     onCompare(callback){
         this.compare = callback;
     }
-
-
     deleteResults(){
         while(this.resultList.firstChild){
             this.resultList.removeChild(this.resultList.firstChild);
         }
     }
-
     linkCreator(li,symbol,span){
         let currentA = document.createElement('A');
         let currentImg = document.createElement('IMG');
@@ -65,111 +75,32 @@ class SearchResults{
         currentA.appendChild(currentImg);
         currentA.appendChild(span);
     }
-
     buttonCreator(li, i, symbol){
         let compareButton = document.createElement('button');
         compareButton.textContent = "Compare";
         compareButton.id = `button${i}`;
         li.appendChild(compareButton);
-        // super.compareHandler(compareButton.id, symbol);
         this.buttonCreate(compareButton.id, symbol);
     }
-
-
     colorSpan(myString, input, currentSpan){
-        let mySpan = document.createElement('SPAN');
-        let mySpan2 = document.createElement('SPAN');
-        currentSpan.appendChild(mySpan);
-        currentSpan.appendChild(mySpan2);
-        if(myString.toLowerCase().includes(input.toLowerCase()) && myString.toLowerCase().indexOf(input.toLowerCase()) === 0){
-            let secondString  = myString.split('').slice((input.length)).join('');
-            mySpan.textContent = input.toUpperCase();
-            mySpan2.textContent = secondString + " ";
-            mySpan.classList.add('highlighted-span');
-        } else {
-            mySpan.classList.remove('highlighted-span');
-            mySpan.textContent = myString;
-        }
-    }
+        let x = myString.toLowerCase();
+        let y = input.toLowerCase();
+        const substring = new RegExp(input, "gi");
+        let replacedString = myString.replace(substring ,`<mark>${input}</mark>`)
+        if(x.indexOf(y) === 0){
+            replacedString = replacedString.replace(`<mark>${input}</mark>`, `<mark>${input.toUpperCase()}</mark>`);
 
-    createPercent(string, currentItem){
-        console.log(string);
-        if(Math.sign(string) === 1){
-            currentItem.innerHTML +=`<span class="company-green"> (+${string}%)</span>`;
-        } else if(Math.sign(string) === -1){
-            currentItem.innerHTML +=`<span class="company-red"> (${string}%)</span>`;
         }
+        currentSpan.innerHTML = replacedString;
+    }
+    setParams(string){
+        let baseUrl = "/index.html";
+        if(string === ""){
+            window.history.pushState({page: "another"}, "another page",baseUrl);
+        } else{
+            window.history.pushState({page: "another"}, "another page",baseUrl);
+            window.history.pushState({page: "another"}, "another page",baseUrl + `?query=${string}`);
+        } 
     }
 
 }
-
-   //I will also divide this large function into smaller parts that would more understandable
-    // showResults(array){
-    //     for(let i = 0; i < array.length; i++){
-    //         let currentLI = document.createElement('LI');
-    //         let mySpan = document.createElement('SPAN');
-    //         this.resultList.appendChild(currentLI);
-    //         this.linkCreator(currentLI, array[i].symbol,mySpan);
-    //         this.buttonCreator(currentLI, i, array[i].symbol);
-    //         this.colorSpan(array[i].symbol, this.inputChange(), mySpan);
-    //         this.colorSpan(array[i].name, this.inputChange(), mySpan);
-    //         this.getPercentage(array[i].symbol, mySpan);
-    //         super.compare();
-    //     }
-    // }
-
-    // linkCreator(li,symbol,span){
-    //     let currentA = document.createElement('A');
-    //     let currentImg = document.createElement('IMG');
-    //     li.appendChild(currentA);
-    //     let imgSrc = `https://financialmodelingprep.com/images-New-jpg/${symbol}.jpg`;
-    //     let myHref = `/company.html?symbol=${symbol}`;
-    //     currentA.href = myHref;
-    //     currentA.className = "myA";
-    //     currentImg.src = imgSrc;
-    //     currentImg.className = "myImg";
-    //     span.className = "mySpan";
-    //     currentA.appendChild(currentImg);
-    //     currentA.appendChild(span);
-    // }
-
-    // buttonCreator(li, i, symbol){
-    //     let compareButton = document.createElement('button');
-    //     compareButton.textContent = "Compare";
-    //     compareButton.id = `button${i}`;
-    //     li.appendChild(compareButton);
-    //     super.compareHandler(compareButton.id, symbol);
-    // }
-
-
-
-
-    // getPercentage(symbol,currentItem){
-    //     let percentage;
-    //     fetch(`https://stock-exchange-dot-full-stack-course-services.ew.r.appspot.com/api/v3/quote/${symbol}`).then(response =>{
-    //         // console.log(response.json());
-    //         return response.json();
-    //     }).then(data =>{
-    //         percentage = data[0].changesPercentage;
-    //         if(Math.sign(percentage) === 1){
-    //             currentItem.innerHTML +=`<span class="company-green"> (+${percentage}%)</span>`;
-    //         } else if(Math.sign(percentage) === -1){
-    //             currentItem.innerHTML +=`<span class="company-red"> (${percentage}%)</span>`;
-    //         }
-    //     });
-    // }
-    // colorSpan(myString, input, currentSpan){
-    //     let mySpan = document.createElement('SPAN');
-    //     let mySpan2 = document.createElement('SPAN');
-    //     currentSpan.appendChild(mySpan);
-    //     currentSpan.appendChild(mySpan2);
-    //     if(myString.toLowerCase().includes(input.toLowerCase()) && myString.toLowerCase().indexOf(input.toLowerCase()) === 0){
-    //         let secondString  = myString.split('').slice((input.length)).join('');
-    //         mySpan.textContent = input.toUpperCase();
-    //         mySpan2.textContent = secondString + " ";
-    //         mySpan.classList.add('highlighted-span');
-    //     } else {
-    //         mySpan.classList.remove('highlighted-span');
-    //         mySpan.textContent = myString;
-    //     }
-    // }
